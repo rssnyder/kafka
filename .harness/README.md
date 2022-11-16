@@ -1,4 +1,4 @@
-# Run Apache Kafka on Harness CI
+# Build and Test Apache Kafka on Harness CI
 
 This is a fork of Apache Kafka project. This project was used to demo the new capabilities of Harness CI at Unscripted conference.
 This file contains instructions on how to run the Apache Kafka pipeline shown during the unscripted conference demo on Harness CI.
