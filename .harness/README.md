@@ -1,4 +1,4 @@
-# Build and Test Apache Kafka on Harness CI
+[# Build and Test Apache Kafka on Harness CI
 
 This is a fork of Apache Kafka project. This project was used to demo the new capabilities of Harness CI at Unscripted conference.
 This file contains instructions on how to run the Apache Kafka pipeline shown during the unscripted conference demo on Harness CI.
@@ -12,6 +12,7 @@ This file contains instructions on how to run the Apache Kafka pipeline shown du
  4. Select the `Continuous Integration` module and choose the `Starter pipeline` wizard to create your first pipeline using the forked repo from #2.
  5. Go to the newly created pipeline and hit the `Triggers`tab. If everything went well, you should see two triggers auto-created. A `Pull Request`trigger and a `Push`trigger. For this exercise, we only need `Pull Request`trigger to be enabled. So, please disable or delete the `Push`trigger.
  6. Update the starter pipeline YAML's step as follows:
+```
                   - step:
                     type: RunTests
                     name: Run Tests with Intelligence
@@ -28,6 +29,8 @@ This file contains instructions on how to run the Apache Kafka pipeline shown du
                         spec:
                           paths:
                             - "**/*.xml"
+```
+
 7. Create a Pull Request by updating the `build.gradle`file. (e.g. add a comment or new line)
 8. The Harness pipeline kicks off a webhook execution due to the enabled `Pull Request` trigger. This `build.gradle` file is special and so Harness Test Intelligence selects all the available tests in the repository to run and stores their relationships with source files.
 9. Merge the PR after the pipeline runs to completion. At this point, Harness Test Intelligence captured the test-source relationships and persisted them in a database. This will take ~20min
